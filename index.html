@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JeepGold - Магазин Голды</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #1a1a1a;
+    }
+    .logo {
+      font-weight: bold;
+      color: #ffd700;
+      font-size: 24px;
+    }
+    .btn {
+      background-color: #ffd700;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, #1a1a1a, #0e0e0e);
+    }
+    .hero h1 {
+      color: #ffd700;
+      font-size: 36px;
+    }
+    .purchase-box {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    .purchase-box input, .purchase-box select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: none;
+      background-color: #2a2a2a;
+      color: white;
+    }
+    .steps, .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px 0;
+      gap: 20px;
+    }
+    .step, .feature {
+      width: 200px;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #1a1a1a;
+      font-size: 14px;
+    }
+    a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+  </style>
+  <script>
+    function redirectToTelegram() {
+      const amount = document.getElementById('amount').value;
+      const nickname = document.getElementById('nickname').value;
+      const payment = document.getElementById('payment').value;
+
+      if (!amount || !nickname) {
+        alert('Пожалуйста, заполните все поля!');
+        return;
+      }
+
+      const msg = `Хочу заказать ${amount} голды. Ник: ${nickname}. Оплата: ${payment}`;
+      const url = `https://t.me/JeepSO_2?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">👑 JeepGold</div>
+    <button class="btn" onclick="window.open('https://t.me/JeepSO_2', '_blank')">Личный кабинет</button>
+  </header>
+  <section class="hero">
+    <h1>Быстрая и безопасная покупка голды — за секунды!</h1>
+    <button class="btn" onclick="document.getElementById('order').scrollIntoView({ behavior: 'smooth' })">Купить сейчас</button>
+  </section>
+  <section class="purchase-box" id="order">
+    <label>Сколько голды вы хотите?</label>
+    <input type="number" id="amount" value="100" min="10" max="10000" />
+    <label>Ваш ID/ник в игре:</label>
+    <input type="text" id="nickname" placeholder="Введите ваш ID" />
+    <label>Выберите способ оплаты:</label>
+    <select id="payment">
+      <option>QIWI</option>
+      <option>Карта РФ</option>
+      <option>Крипта</option>
+    </select>
+    <button class="btn" onclick="redirectToTelegram()">Купить</button>
+  </section>
+  <h2 style="text-align:center">Как проходит покупка</h2>
+  <section class="steps">
+    <div class="step">Вы оформляете заказ</div>
+    <div class="step">Оплачиваете заказ</div>
+    <div class="step">Мы закупаем голду у поставщика</div>
+    <div class="step">Мы передаём голду в игре</div>
+  </section>
+  <section class="features">
+    <div class="feature">⚡ Моментальная доставка</div>
+    <div class="feature">🔐 Безопасная сделка</div>
+    <div class="feature">💸 Гарантия возврата</div>
+    <div class="feature">🎁 Бонусы клиентам</div>
+  </section>
+  <footer>
+    YouTube: <a href="https://www.youtube.com/@JeepSO_2" target="_blank">@JeepSO_2</a><br>
+    Telegram (личка): <a href="https://t.me/JeepSO_2" target="_blank">@JeepSO_2</a><br>
+    ⓒ 2025 JeepGold — Все права защищены.
+  </footer>
+</body>
+</html>
